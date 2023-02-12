@@ -1,31 +1,14 @@
 # Problem Set 1
-# 31-1-2023 / Pluviose 12th CCXXXI
-# R Hallissey
+# 12-2-2023 / 12 Frimaire CCXXXII
+# Ruairí Hallissey
 
 # Question 1
 
-#Data and distributions
+# Data
 set.seed(123)
 data <- rcauchy(1000, location = 0, scale = 1)
-ECDF <- ecdf(data)
-empiricalCDF <- ECDF(data)
-#Test statistic
-D <-max(abs(empiricalCDF - pnorm(data)))
 
-?ks.test
-ks.test(data, "pnorm")
-
-# Max = maxium value
-# abs = absolute positive value
-# empirical CDF = observed cumulative distribution function
-# pnorm gives the distribution function of (data)(which is 1000 Cauchy variables)
-# So JZ's code subtracts the distribution function of the data from its empirical
-# cumulative distribution function then takes the maximum absolute value from this,
-# which is D, the ks t stat
-# dnorm is the gives of a probability distribution
-
-
-# Kolmogorov - Smirnov Test Function
+# Kolmogorov - Smirnov Test Function without p-value
 kst <- function (x) {
   ECDF <- ecdf(x)
   empiricalCDF <- ECDF(x)
@@ -34,63 +17,53 @@ kst <- function (x) {
 } 
 kst(data)
 
-# W/palue
+# 2nd attempt
+# I wasn't able to create function which returns the p value
+# This function returns the the test stat and the result of.95 critical value divided 
+# being divided by by the sqrt of the sample size, which i read was a way to carry out
+# the test. Not sure though. 
 kst <- function (x) {
   ECDF <- ecdf(x)
   empiricalCDF <- ECDF(x)
   d <- (max(abs(empiricalCDF - pnorm(x))))
-  p <- d*sqrt(length(data))
-  cat(d, p)
+  s <- sqrt(length(data))
+  d.a <- 1.35810 / s
+  cat(d, d.a)
 } 
 kst(data)
+print("D is greater than than the .95 critical value (n > 50) divided by the sqrt 
+      of the samplesize, meaning we can conclude that data is not a good fit for 
+      normal distribution")
 
-# 
-DNorm <- function(x, mean = 0, sd = 1) {
-  emp.cdf <- ecdf(x)
-  n = length(x)
-  df <- data.frame(emp.cdf = emp.cdf(x), pnorm = pnorm(x, mean, sd))
-  vec <- (abs((df$emp.cdf - df$pnorm))) 
-  res <- max(vec)* sqrt(n)
-}
-
-DnNorm <- function(n, mean = 0, sd = 1) {
-  x <- sapply(10:n, rnorm, mean, sd)
-  res <- sapply(x, DNorm, mean, sd)
-}
-  
-DNorm(data, mean = 0, sd = 1)
-DnNorm(n, mean = 0, sd = 1)
-y <- DNorm(data, mean = 0, sd = 1)
-z <- DnNorm(n, mean = 0, sd = 1)
-
-z
-
-sum(z)
-mean(z)
-max(z)
+# Ultimately was not able to find a way of creating a function which returned 
+# the same values as the base r function 
+print(ks.test(data, "pnorm"))
+print("p of 2.2e-16 is less .05, meaning we can reject the null hypthesis that the data is not normally distributed")
 
 
-res <- D*sqrt(length(data))
+# Question 2
+# Data
+set.seed (123)
+data <- data.frame(x = runif(200, 1, 10))
+data$y <- 0 + 2.75*data$x + rnorm(200, 0, 1.5)
 
-1.36 / 1000
-res
+# Likelihood function
+lf <- function(theta, y, X){
+  n <- nrow(X) 
+  k <- ncol(X)  
+  beta <- theta[1 : k]  
+  sigma_sqr <- theta[k + 1]^2  
+  e <- y - X%*%beta
+  loglik <- -.5*n*log(2*pi) -.5*n*log(sigma_sqr) - ((t(e) %*% e) / (2 * sigma_sqr))
+  return(-loglik)}
 
-x <- sapply(10:n, rnorm, mean(data), sd(data))
-res <- sapply(x, dnorm, mean(data), sd(data))
-max.col(res)
+# Maximum likelihood parameters
+MLE <- optim(fn=lf, par=c(1, 1, 1), hessian =TRUE, y =data$y, X= cbind 
+             (1 ,data$x), method = "BFGS")
+# Linear Regression 
+lm <- lm(y ~ x, data = data)
+print(lm$coefficients)
 
-n = 1000
-
-p - D
-D - 
-res - D
-
-
-x <- sapply(n, rnorm)
-sapply(x, dnorm)
-
-mean(data)
-
-
-y * 
-max(sqrt(z))
+# Comparison
+cat(print("Maximum Likilehood Estimate Paramenters"), MLE$par,
+    print("and Linear Regression Coefficients"),lm$coefficients)

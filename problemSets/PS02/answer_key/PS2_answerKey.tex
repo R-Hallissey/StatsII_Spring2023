@@ -117,14 +117,15 @@
 	\lstinputlisting[language=R, firstline=40,lastline=47]{../answer_key/PS2_answerKey.R} 
 	
 	\begin{verbatim}
+
 Coefficients:
-              Estimate Std. Error z value Pr(>|z|)    
-(Intercept)    0.24743    0.04406   5.616 1.95e-08 ***
-countries.L    0.45845    0.03810  12.033  < 2e-16 ***
-countries.Q   -0.00995    0.03806  -0.261  0.79374    
-sanctionsNone -0.19185    0.06216  -3.086  0.00203 ** 
-sanctions15%  -0.32510    0.06224  -5.224 1.76e-07 ***
-sanctions20%  -0.49542    0.06228  -7.955 1.79e-15 ***
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         -0.08081    0.05316  -1.520  0.12848    
+countries80 of 192   0.33636    0.05380   6.252 4.05e-10 ***
+countries160 of 192  0.64835    0.05388  12.033  < 2e-16 ***
+sanctionsNone       -0.19186    0.06216  -3.086  0.00203 ** 
+sanctions15%        -0.32510    0.06224  -5.224 1.76e-07 ***
+sanctions20%        -0.49542    0.06228  -7.955 1.79e-15 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -133,13 +134,13 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Null deviance: 11783  on 8499  degrees of freedom
 Residual deviance: 11568  on 8494  degrees of freedom\end{verbatim}
 	
-	\lstinputlisting[language=R, firstline=49,lastline=51]{../answer_key/PS2_answerKey.R} 
+	\lstinputlisting[language=R, firstline=49,lastline=52]{../answer_key/PS2_answerKey.R} 
 	
 	\begin{verbatim}
 		[1] 1.749304e-44
 	\end{verbatim}
 
-	\lstinputlisting[language=R, firstline=53,lastline=55]{../answer_key/PS2_answerKey.R} 
+	\lstinputlisting[language=R, firstline=54,lastline=56]{../answer_key/PS2_answerKey.R} 
 	
 	\begin{verbatim}
 		Model 1: choice ~ 1
@@ -157,57 +158,21 @@ Model 2: choice ~ countries + sanctions
 		\item
 		\textit{For the policy in which nearly all countries participate [160 of 192], how does increasing sanctions from 5\% to 15\% change the odds that an individual will support the policy? (Interpretation of a coefficient)}
 		
-		Table~\ref{table:coefficients} displays the estimated coefficients for the additive model that we ran in part \#1. Remember, this is an additive model, so for all potential policies (20 of 192; 80 of 192; 160 of 192) going from our new baseline category (5\%)  to 15\% in sanctions, on average, results in a decrease of 0.33 in the log odds that a participant will prefer a given policy.
-		
-		\begin{table}[b!]
-			\caption{Additive model of \texttt{choice $\sim$ countries + sanctions}}
-				\vspace{.25cm}
-			\label{table:coefficients}
-\centering
-	\begin{adjustbox}{width=.3\textwidth}
-\begin{tabular}{l c}
-\hline
- & Model 1 \\
-\hline
-(Intercept)    & $0.25^{***}$  \\
-               & $(0.04)$      \\
-countries.L    & $0.46^{***}$  \\
-               & $(0.04)$      \\
-countries.Q    & $-0.01$       \\
-               & $(0.04)$      \\
-sanctionsNone  & $-0.19^{**}$  \\
-               & $(0.06)$      \\
-sanctions15\%  & $-0.33^{***}$ \\
-               & $(0.06)$      \\
-sanctions20\%  & $-0.50^{***}$ \\
-               & $(0.06)$      \\
-\hline
-AIC            & $11580.26$    \\
-BIC            & $11622.55$    \\
-Log Likelihood & $-5784.13$    \\
-Deviance       & $11568.26$    \\
-N     & $8500$        \\
-\hline
-\multicolumn{2}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$}}
-\end{tabular}
-\end{adjustbox}
-\end{table}
-		
-
+		Column 1 in Table~\ref{table:coefficients2} displays the estimated coefficients for the additive model that we ran in part \#1. Remember, this is an additive model, so for all potential policies (20 of 192; 80 of 192; 160 of 192) going from our new baseline category (5\%)  to 15\% in sanctions, on average, results in a decrease of 0.33 in the log odds that a participant will prefer a given policy.
 		
 		\item
 		\textit{What is the estimated probability that an individual will support a policy if there are 80 of 192 countries participating with no sanctions? }
 		
-			\lstinputlisting[language=R, firstline=61,lastline=62]{../answer_key/PS2_answerKey.R} 
+			\lstinputlisting[language=R, firstline=61,lastline=63]{../answer_key/PS2_answerKey.R} 
 			
 			\begin{verbatim}
-			0.63 
+			0.52
 			\end{verbatim}
 			
-						\lstinputlisting[language=R, firstline=64,lastline=66]{../answer_key/PS2_answerKey.R} 
+						\lstinputlisting[language=R, firstline=65,lastline=67]{../answer_key/PS2_answerKey.R} 
 						
 						\begin{verbatim}
-								0.63 
+								0.52 
 						\end{verbatim}
 		
 		\item
@@ -215,62 +180,15 @@ N     & $8500$        \\
 		
 		The answer to 2a and 2b could potentially change because we would be estimating the slope, as well as the intercept, for two fitted lines, one for each policy type with different \#s of participating countries [20 of 192; 80 of 192; 160 of 192]. Let’s run it in \texttt{R} and see if there’s any substantive difference.
 		
-					\lstinputlisting[language=R, firstline=69,lastline=70]{../answer_key/PS2_answerKey.R} 
+					\lstinputlisting[language=R, firstline=69,lastline=71]{../answer_key/PS2_answerKey.R} 
 		
-		We can see, however, in Table~\ref{table:coefficients2} that none of the interactive effects are statistically different from zero. This is our first indication that there is not a differentiable effect of the \# of participating countries by level of sanctions.
-		
-		\begin{table}[h!]
-	\caption{Interactive model of \texttt{choice $\sim$ countries*sanctions}}
-	\vspace{.25cm}
-	\label{table:coefficients2}
-	\centering
-\begin{adjustbox}{width=.475\textwidth}
-\begin{tabular}{l c c}
-\hline
- & Model 1 & Model 2 \\
-\hline
-(Intercept)               & $0.25^{***}$  & $0.25^{***}$  \\
-                          & $(0.04)$      & $(0.04)$      \\
-countries.L               & $0.46^{***}$  & $0.53^{***}$  \\
-                          & $(0.04)$      & $(0.07)$      \\
-countries.Q               & $-0.01$       & $-0.08$       \\
-                          & $(0.04)$      & $(0.08)$      \\
-sanctionsNone             & $-0.19^{**}$  & $-0.20^{**}$  \\
-                          & $(0.06)$      & $(0.06)$      \\
-sanctions15\%             & $-0.33^{***}$ & $-0.33^{***}$ \\
-                          & $(0.06)$      & $(0.06)$      \\
-sanctions20\%             & $-0.50^{***}$ & $-0.50^{***}$ \\
-                          & $(0.06)$      & $(0.06)$      \\
-countries.L:sanctionsNone &               & $-0.09$       \\
-                          &               & $(0.11)$      \\
-countries.Q:sanctionsNone &               & $0.02$        \\
-                          &               & $(0.11)$      \\
-countries.L:sanctions15\% &               & $-0.13$       \\
-                          &               & $(0.11)$      \\
-countries.Q:sanctions15\% &               & $0.05$        \\
-                          &               & $(0.11)$      \\
-countries.L:sanctions20\% &               & $-0.05$       \\
-                          &               & $(0.11)$      \\
-countries.Q:sanctions20\% &               & $0.21$        \\
-                          &               & $(0.11)$      \\
-\hline
-AIC                       & $11580.26$    & $11585.97$    \\
-BIC                       & $11622.55$    & $11670.54$    \\
-Log Likelihood            & $-5784.13$    & $-5780.98$    \\
-Deviance                  & $11568.26$    & $11561.97$    \\
-N               & $8500$        & $8500$        \\
-\hline
-\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$}}
-\end{tabular}
-	\end{adjustbox}
-
-\end{table}
-		
+		We can see, however, in Column 2 of Table~\ref{table:coefficients2} that none of the interactive effects are statistically different from zero. This is our first indication that there is not a differentiable effect of the \# of participating countries by level of sanctions.
+	
 	
 		\begin{itemize}
 			\item \textit{Perform a test to see if including an interaction is appropriate.}
 			
-			\lstinputlisting[language=R, firstline=72,lastline=73]{../answer_key/PS2_answerKey.R} 
+			\lstinputlisting[language=R, firstline=73,lastline=74]{../answer_key/PS2_answerKey.R} 
 			
 			\begin{verbatim}
 				Model 1: choice ~ countries + sanctions
@@ -279,10 +197,60 @@ Model 2: choice ~ countries * sanctions
 1      8494      11568                     
 2      8488      11562  6   6.2928   0.3912
 			\end{verbatim}
+		
+
 			We get a p-value that is not below our critical threshold of 0.05, so we cannot reject the null hypothesis that the interactive model does not improve our fit over the additive model (i.e., there does not appear to be sufficient evidence to justify an interactive effect of the \# of participating countries by sanction level).
 			
 		\end{itemize}
 	\end{enumerate}
+	\clearpage
+
+\begin{table}[h!]
+	\caption{Additive and interactive model of \texttt{choice $\sim$ countries+sanctions}}
+	\vspace{.25cm}
+	\label{table:coefficients2}
+	\centering
+	\begin{adjustbox}{width=.65\textwidth}
+		\begin{tabular}{l c c}
+			\hline
+			& Model 1 & Model 2 \\
+			\hline
+			(Intercept)                       & $-0.08$       & $-0.15^{*}$   \\
+			& $(0.05)$      & $(0.07)$      \\
+			countries80 of 192                & $0.34^{***}$  & $0.47^{***}$  \\
+			& $(0.05)$      & $(0.11)$      \\
+			countries160 of 192               & $0.65^{***}$  & $0.74^{***}$  \\
+			& $(0.05)$      & $(0.11)$      \\
+			sanctionsNone                     & $-0.19^{**}$  & $-0.12$       \\
+			& $(0.06)$      & $(0.11)$      \\
+			sanctions15\%                     & $-0.33^{***}$ & $-0.22^{*}$   \\
+			& $(0.06)$      & $(0.11)$      \\
+			sanctions20\%                     & $-0.50^{***}$ & $-0.37^{***}$ \\
+			& $(0.06)$      & $(0.11)$      \\
+			countries80 of 192:sanctionsNone  &               & $-0.09$       \\
+			&               & $(0.15)$      \\
+			countries160 of 192:sanctionsNone &               & $-0.13$       \\
+			&               & $(0.15)$      \\
+			countries80 of 192:sanctions15\%  &               & $-0.15$       \\
+			&               & $(0.15)$      \\
+			countries160 of 192:sanctions15\% &               & $-0.18$       \\
+			&               & $(0.15)$      \\
+			countries80 of 192:sanctions20\%  &               & $-0.29$       \\
+			&               & $(0.15)$      \\
+			countries160 of 192:sanctions20\% &               & $-0.07$       \\
+			&               & $(0.15)$      \\
+			\hline
+			AIC                               & $11580.26$    & $11585.97$    \\
+			BIC                               & $11622.55$    & $11670.54$    \\
+			Log Likelihood                    & $-5784.13$    & $-5780.98$    \\
+			Deviance                          & $11568.26$    & $11561.97$    \\
+			N                        & $8500$        & $8500$        \\
+			\hline
+			\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$}}
+		\end{tabular}
+	\end{adjustbox}
+	
+\end{table}
 \end{enumerate}
 
 

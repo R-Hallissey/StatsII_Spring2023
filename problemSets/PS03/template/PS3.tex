@@ -100,26 +100,150 @@
 
 \begin{enumerate}
 	\item Construct and interpret an unordered multinomial logit with \texttt{GDPWdiff} as the output and "no change" as the reference category, including the estimated cutoff points and coefficients.
+\begin{table}[!htbp] \centering 
+	\caption{Multinomial Regression} 
+	\label{} 
+	\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+		\cline{2-3} 
+		\\[-1.8ex] & Negative & Positive \\ 
+		\\[-1.8ex] & (1) & (2)\\ 
+		\hline \\[-1.8ex] 
+		REG & 1.379$^{*}$ & 1.769$^{**}$ \\ 
+		& (0.769) & (0.767) \\ 
+		& & \\ 
+		OIL & 4.784 & 4.576 \\ 
+		& (6.885) & (6.885) \\ 
+		& & \\ 
+		Constant & 3.805$^{***}$ & 4.534$^{***}$ \\ 
+		& (0.271) & (0.269) \\ 
+		& & \\ 
+		\hline \\[-1.8ex] 
+		Akaike Inf. Crit. & 4,690.770 & 4,690.770 \\ 
+		\hline 
+		\hline \\[-1.8ex] 
+		\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+	\end{tabular} 
+\end{table}
+\begin{table}[!htbp] \centering 
+	\caption{Coefficient Probabilities} 
+	\label{} 
+	\begin{tabular}{@{\extracolsep{5pt}} cccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& (Intercept) & REG & OIL \\ 
+		\hline \\[-1.8ex] 
+		Negative & $0.978$ & $0.799$ & $0.992$ \\ 
+		Positive & $0.989$ & $0.854$ & $0.990$ \\ 
+		\hline \\[-1.8ex] 
+	\end{tabular} 
+\end{table}
+\begin{table}[!htbp] \centering 
+	\caption{p-values} 
+	\label{} 
+	\begin{tabular}{@{\extracolsep{5pt}} cccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& (Intercept) & REG & OIL \\ 
+		\hline \\[-1.8ex] 
+		Negative & $0$ & $0.073$ & $0.487$ \\ 
+		Positive & $0$ & $0.021$ & $0.506$ \\ 
+		\hline \\[-1.8ex]
+	\end{tabular} 
+\end{table} 
+
+		\texttt The cuttoff for the log odds of no change to negative GDP difference is 3.80 (SE = 0.27),
+	meaning this is average effect on log odds of negative GDP difference when country is both a non-democracy
+	and not a major oil exporter.The cuttoff for log odds for no change to positive GDP difference is 4.533 (SE = 2.6)
+	which is the average effect of being a non-democratic non-major oil exporter on log odds of positive GDP difference.
+	
+	Holding oil exporter status constant and with no change as the reference,  moving from non- to democracy increases the log odds of negative GDP difference by an average of 3.80 (SE = 0.76). The average effect of being a democracy on the log odds of positive GDP difference is 4.533 (SE = 76). Holding regime type constant, moving from non- to major oil exporter increases the log of negative GDP difference by  an average  of  4.78 (SE = 6.88). The average of effect of being a major oil exporter on the log odds of positive GDP difference is 4.57 (SE = 6.88) However, at the 95\% confidence level, only for the association between regime type and positive GDP difference can we reject the null hypothesis that this relationship is random (z = 2.03, p = 0.02). 
+	
+	Converting to probabilities, when holding whether a countries oil exporter status constant, democracies have 79.8 \% greater chance of experiencing negative economic growth compared to no change over non-democracies, and an 85.5 \% chance they experiencing positive economic growth. Democracies are thus 5.7\% more likely than non-democracies to experience positive economic growth compared to no change, than they are negative economic growth compared to no change. When holding regime type constant, major oil exporters are 99.1\% more likely than non-oil exporters to experience negative growth compared to no change, and 98.9\% more likely to experience positive 
+	growth. Thus, when controlling for regime type, major oil exporters are 0.2 \% more likely to experience negative growth over positive growth in relation to no change.'
+	
 	\item Construct and interpret an ordered multinomial logit with \texttt{GDPWdiff} as the outcome variable, including the estimated cutoff points and coefficients.
-	
-	
+	\begin{table}[!htbp] \centering 
+		\caption{Ordered Logistic Regression}  
+		\label{} 
+		\begin{tabular}{@{\extracolsep{5pt}} cccccc} 
+			\\[-1.8ex]\hline 
+			\hline \\[-1.8ex] 
+			& Value & Std. Error & t value & p value & p value.1 \\ 
+			\hline \\[-1.8ex] 
+			REG & $0.398$ & $0.075$ & $5.300$ & $0.00000$ & $0.00000$ \\ 
+			OIL & $$-$0.199$ & $0.116$ & $$-$1.717$ & $0.086$ & $0.086$ \\ 
+			Negative\textbar No Change & $$-$0.731$ & $0.048$ & $$-$15.360$ & $0$ & $0$ \\ 
+			No Change\textbar Positive & $$-$0.710$ & $0.048$ & $$-$14.955$ & $0$ & $0$ \\ 
+			\hline \\[-1.8ex] 
+		\end{tabular} 
+	\end{table}
+	\texttt	
+The cuttoff for the log odds of negative to no change in GDP difference when a country is both a non-major oil exporter and a non-democracy and is -.7312 (SE = 0.04). The average effect of a country being a non-major oil exporter and a non-democracy on the log logs odds no change to positive is 0.71 ( SE = 0.04)
+
+Holding oil export status constant, moving from democracy to non-democracy increases the log of GDP difference average  of 0.39 (SE = 0.04) from negative to positive. Holding regime type constant, moving from non- to major oil exporter reduces the log of ordered GDP difference -0.19. However, in ordered logistic, neither of these relationships are significant, meaning we cannot reject the null hypothesis that either association is random.
+
+Converting to probabilities, holding whether oil exporter status constant, democracies are 59\% more likely than non-democracies to have positive GDP difference. Holding regime type constant, countries which are major oil exporters are 45\% less like to have positive 
+GDP growth than non-major oil exporters.	
 \end{enumerate}
 
 \section*{Question 2} 
 \vspace{.25cm}
 
 \noindent Consider the data set \texttt{MexicoMuniData.csv}, which includes municipal-level information from Mexico. The outcome of interest is the number of times the winning PAN presidential candidate in 2006 (\texttt{PAN.visits.06}) visited a district leading up to the 2009 federal elections, which is a count. Our main predictor of interest is whether the district was highly contested, or whether it was not (the PAN or their opponents have electoral security) in the previous federal elections during 2000 (\texttt{competitive.district}), which is binary (1=close/swing district, 0="safe seat"). We also include \texttt{marginality.06} (a measure of poverty) and \texttt{PAN.governor.06} (a dummy for whether the state has a PAN-affiliated governor) as additional control variables. 
-
 \begin{enumerate}
 	\item [(a)]
-	Run a Poisson regression because the outcome is a count variable. Is there evidence that PAN presidential candidates visit swing districts more? Provide a test statistic and p-value.
+	Run a Poisson regression because the outcome is a count variable. Is there evidence that PAN presidential candidates visit swing districts more? Provide a test statistic and p-value.	(see pg 5 for table)
+	\begin{table}[!htbp] \centering 
+		\caption{Poisson Regression for Presidential Candidate Visits} 
+		\label{} 
+		\begin{tabular}{@{\extracolsep{5pt}}lc} 
+			\\[-1.8ex]\hline 
+			\hline \\[-1.8ex] 
+			& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+			\cline{2-2} 
+			\\[-1.8ex] & PAN.visits.06 \\ 
+			\hline \\[-1.8ex] 
+			competitive.district & $-$0.081 \\ 
+			& (0.171) \\ 
+			& \\ 
+			marginality.06 & $-$2.080$^{***}$ \\ 
+			& (0.117) \\ 
+			& \\ 
+			PAN.governor.06 & $-$0.312$^{*}$ \\ 
+			& (0.167) \\ 
+			& \\ 
+			Constant & $-$3.810$^{***}$ \\ 
+			& (0.222) \\ 
+			& \\ 
+			\hline \\[-1.8ex] 
+			Observations & 2,407 \\ 
+			Log Likelihood & $-$645.606 \\ 
+			Akaike Inf. Crit. & 1,299.213 \\ 
+			\hline 
+			\hline \\[-1.8ex] 
+			\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+		\end{tabular} 
+	\end{table}
+
+	\texttt When controlling for the other information the model, a district going from non-competitive to competitive reduces log count of districts visited by an average -0.08, suggesting competition is associated with a reduction in candidate visits. A p value <0.05 means that cannot reject the null hypothesis that this relationship is by chance (z = 0.477, p = 0.63)
 
 	\item [(b)]
 	Interpret the \texttt{marginality.06} and \texttt{PAN.governor.06} coefficients.
 	
+	\vspace{.25cm}
+	
+	\texttt When controlling for the other information the model, each unit increase in the poverty level reduces the log of the count of PAN presidential visits by -2.08 (z = -17.72, p <0.001). Having a PAN  governor reduces the log of the presidential visit count by  -0.31. However, the association is not significant (z = 1.89, p > 0.05), this we cannot dismiss the null hypothesis that the association is by chance. 
 	\item [(c)]
 	Provide the estimated mean number of visits from the winning PAN presidential candidate for a hypothetical district that was competitive (\texttt{competitive.district}=1), had an average poverty level (\texttt{marginality.06} = 0), and a PAN governor (\texttt{PAN.governor.06}=1).
 	
+	\vspace{.25cm}
+	\texttt A hypothetical competitive district with average poverty and a PAN governor would get an average of 0 visits from the winning candidate (see pg 6 for code).
+\begin{lstlisting}[language=R]
+		(exp(coeff[1] + coeff[2] + coeff[4]))
+\end{lstlisting}	
 \end{enumerate}
 
 \end{document}

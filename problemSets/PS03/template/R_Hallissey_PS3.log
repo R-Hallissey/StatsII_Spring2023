@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  25 MAR 2023 22:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  25 MAR 2023 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -978,7 +978,7 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
 File: lstlang3.sty 2020/03/24 1.8d listings language file
 )
-[4] [5] [6] (R_Hallissey_PS3.aux)
+[4] [5] (R_Hallissey_PS3.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -986,9 +986,9 @@ Package rerunfilecheck Info: File `R_Hallissey_PS3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27001 strings out of 475385
- 480032 string characters out of 2777378
- 1009211 words of memory out of 3000000
+ 27000 strings out of 475385
+ 480026 string characters out of 2777378
+ 1013138 words of memory out of 3000000
  47879 multiletter control sequences out of 15000+600000
  480017 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1006,9 +1006,9 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/User
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Us
 ers/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pf
 b>
-Output written on R_Hallissey_PS3.pdf (6 pages, 128372 bytes).
+Output written on R_Hallissey_PS3.pdf (5 pages, 127821 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
+ 98 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

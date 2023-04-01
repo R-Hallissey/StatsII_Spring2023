@@ -97,4 +97,3 @@ anova(logis_2, logis_1, test = 'LRT')
 
 stargazer(logis_1, logis_2, title = "Additive and Interactive Model")
 
-    

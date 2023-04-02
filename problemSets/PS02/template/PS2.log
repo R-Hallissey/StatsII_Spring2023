@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  1 APR 2023 17:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  1 APR 2023 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./R_Hallissey_PS3.tex
-(R_Hallissey_PS3.tex
+**./PS2.tex
+(PS2.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28>
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -866,40 +866,27 @@ ex.def
 File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count336
 \l__pdf_internal_box=\box76
-) (R_Hallissey_PS3.aux
+) (PS2.aux)
+\openout1 = `PS2.aux'.
 
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-)
-\openout1 = `R_Hallissey_PS3.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
 
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
 i
@@ -926,89 +913,137 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
 
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
 
 
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 68.
-Package hyperref Info: Link coloring OFF on input line 68.
+Package xypdf Info: Line width: 0.47998pt on input line 66.
+Package hyperref Info: Link coloring OFF on input line 66.
 
-(R_Hallissey_PS3.out) (R_Hallissey_PS3.out)
+(PS2.out) (PS2.out)
 \@outlinefile=\write7
-\openout7 = `R_Hallissey_PS3.out'.
+\openout7 = `PS2.out'.
 
 \c@lstlisting=\count343
- [1
+
+! Improper \prevdepth.
+\newpage ...everypar {}\fi \par \ifdim \prevdepth 
+                                                  >\z@ \vskip -\ifdim \prevd...
+l.67 	\frame{\titlepage}
+                        
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.67 	\frame{\titlepage}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! You can't use `\hrule' here except with leaders.
+\frame  ... #1\vrule \@width \@wholewidth }\hrule 
+                                                  \@height \@wholewidth \vsk...
+l.67 	\frame{\titlepage}
+                        
+To put a horizontal rule in an hbox or an alignment,
+you should use \leaders or \hrulefill (see The TeXbook).
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \vskip 
+l.67 	\frame{\titlepage}
+                        
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \vskip 
+l.67 	\frame{\titlepage}
+                        
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.67 	\frame{\titlepage}
+                        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (48.88423pt too wide) in paragraph at lines 67--67
+[][] 
+ []
+
+! Too many }'s.
+<recently read> }
+                 
+l.67 	\frame{\titlepage}
+                        
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+! Too many }'s.
+<recently read> }
+                 
+l.67 	\frame{\titlepage}
+                        
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+ []
+
+[1
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-75.
-
-(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 175.
- [3]
-Overfull \hbox (13.92197pt too wide) in paragraph at lines 228--229
-[]\OT1/cmtt/m/n/12 W\OT1/cmr/m/n/12 hen con-trol-ling for the other in-for-ma-t
-ion the model, a dis-trict go-ing from non-competitive
- []
-
-
-Overfull \hbox (27.95853pt too wide) in paragraph at lines 237--238
-\OT1/cmr/m/n/12 an av-er-age poverty level (\OT1/cmtt/m/n/12 marginality.06 \OT
-1/cmr/m/n/12 = 0), and a PAN gov-er-nor (\OT1/cmtt/m/n/12 PAN.governor.06\OT1/c
-mr/m/n/12 =1). 
- []
-
-(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
-File: lstlang2.sty 2020/03/24 1.8d listings language file
-)
-(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
-File: lstlang3.sty 2020/03/24 1.8d listings language file
-)
-[4] [5] (R_Hallissey_PS3.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `R_Hallissey_PS3.out' has not changed.
+(PS2.aux)
+Package rerunfilecheck Info: File `PS2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27000 strings out of 475385
- 480026 string characters out of 2777378
- 1013138 words of memory out of 3000000
- 47879 multiletter control sequences out of 15000+600000
- 480017 words of font info for 73 fonts, out of 8000000 for 9000
+ 25978 strings out of 475385
+ 469148 string characters out of 2777378
+ 817297 words of memory out of 3000000
+ 46878 multiletter control sequences out of 15000+600000
+ 476772 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,89p,3249b,1903s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 84i,5n,89p,3237b,436s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1
 200.pk><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmmi12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/User/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/User
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Us
-ers/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pf
-b>
-Output written on R_Hallissey_PS3.pdf (5 pages, 127758 bytes).
+/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on PS2.pdf (2 pages, 52308 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
+ 51 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

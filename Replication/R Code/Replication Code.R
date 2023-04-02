@@ -2,7 +2,7 @@
 # Authors: Joshua D. Potter and Margit Tavits
 # Published: April 2013
 ##########################
-# Replication by Ruairí Hallissey 
+# Replication and additons by Ruairí Hallissey 
 # 28-3-2023
 
 
@@ -10,8 +10,8 @@
 # Codebook 
 ##########################
 
-# cnty \ country name
-# year \ year of current election
+# cnty \ country name 
+# year \ year of current election 
 # rulelaw \ from World Bank
 # polity \ Polity IV score
 # thresh \ legal vote threshold 
@@ -36,19 +36,19 @@
 #### Replication Code
 ##########################
 
-#
+# Packages
+library(stargazer)
 library(arm)
 library(haven) # For dta file
 
-# Data
-data <- read_dta("GitHub/cross-sectional-ols/potter-tavits-2015/potter_tavits_data.dta")
 
+# Data
+data <- read_dta("~/GitHub/StatsII_Spring2023/Replication/Data/potter_tavits_data.dta")
 
 # drop outliers
 campaigns <- subset(data, postenp < 9.2)
 
-
-# create post-1974 subset for endogeneity test
+#  Post-1974 subset for endogeneity test
 later1974<-subset(campaigns, demin>1973)
 
 # OLS Model 1 in Table 2
@@ -60,9 +60,9 @@ full<-lm(postenp ~ fundparity4
          + fract 
          + log(avemag):fract, 
          data=campaigns)
-display(full)	
+summary(full)
 
-# estimate Model 2 in Table 2
+# Regression Model 2 in Table 2
 post1974<-lm(postenp ~ fundparity4
              + demyears
              + fed 
@@ -71,13 +71,11 @@ post1974<-lm(postenp ~ fundparity4
              + fract 
              + log(avemag):fract, 
              data=later1974)	
-display(post1974)
+summary(post1974)
 
-# Use texreg to place their table in the paper
-library(texreg)
+#  texreg for table in the paper
 rep.list <- list(full, post1974)
-
-texreg(rep.list)
+stargazer(rep.list)
 
 # construct the endogeneity plot in Figure 1
 plot(campaigns$fundparity4 
@@ -100,9 +98,10 @@ components<-lm(postenp ~ directelig
                + fract 
                + log(avemag):fract, 
                data=campaigns)
-display(components)
+summary(components)
 
-# model to ensure that differences between legal rules and actual empirical practice in a country are not driving our results (this model is mentioned in footnote 45)
+# model to ensure that differences between legal rules and empirical practice in a country are not driving  results 
+# (mentioned in footnote 45)
 rules.practice<-lm(postenp ~ fundparity4
                    + rulelaw
                    + fundparity4*rulelaw
@@ -113,9 +112,9 @@ rules.practice<-lm(postenp ~ fundparity4
                    + fract 
                    + log(avemag):fract, 
                    data=campaigns)
-display(rules.practice)
+summary(rules.practice)
 
-# model to ensure that including legal threshold (which eliminates a large number of our observations due to data availability) does not undercut our results (this model is mentioned in footnote 56) 
+# model to ensure that including legal threshold (eliminates a large number of observations) does not undercut results (mentioned in footnote 56) 
 threshold<-lm(postenp ~ fundparity4
               + thresh
               + demyears
@@ -125,12 +124,11 @@ threshold<-lm(postenp ~ fundparity4
               + fract 
               + log(avemag):fract, 
               data=campaigns)
-display(threshold)
+summary(threshold)
 
-# Additions by Ruairí Hallissey: Recoding pres to a binary variable and running interaction effect
-# between 
-
-# Interactive model with full data set and numeric pres variable
+# Additions: 
+# Recoding pres to a binary variable and running interactive model
+# Interactive w/out recode using full data set
 int_mod <- lm(postenp ~ fundparity4
               + demyears
               + fed 
@@ -142,28 +140,34 @@ int_mod <- lm(postenp ~ fundparity4
               data=campaigns)
 
 summary(int_mod)	
+
 anova(int_mod, full)
 
 
-# Recoding Pres to an actual binary variable interpretability
+# Recoding Pres to binary variable for interpretability
+# Countries excluded due to recode: South Africa, Indonesia, Moldova, 
+# Indonesia, Estonia
+
 campaigns$pres_cat <- factor(campaigns$pres, levels=c('Non-Pres', 'Pres'))
-campaigns$pres_cat[campaigns$pres< 1] <- "Non-Pres"
-campaigns$pres_cat[campaigns$pres> 1] <- "Pres"
+campaigns$pres_cat[campaigns$pres < 1] <- "Non-Pres"
+campaigns$pres_cat[campaigns$pres > 1] <- "Pres"
+
 
 # Interactive model with categorical presidency variable
 int_mod2 <- lm(postenp ~ fundparity4
                + demyears
                + fed 
                + pres_cat
-               + demyears * pres_cat
                + log(avemag) 
                + fract
+               + demyears:pres_cat
                + log(avemag):fract, 
                data=campaigns)
 summary(int_mod2)	
 
+
+
 # Altering the full additive model to allow for anova comparison 
-# p < .05. Significant difference variance explained
 full_w_cat <- lm(postenp ~ fundparity4
                  + demyears
                  + fed 
@@ -173,13 +177,16 @@ full_w_cat <- lm(postenp ~ fundparity4
                  + log(avemag):fract, 
                  data=campaigns)
 
+summary(full_w_cat)
+
+# F test 
+# # p > .05. Significant difference variance explained
 anova(int_mod2, full_w_cat)
 
-# Same operations on post-1974 model
-# Interactive model with post 74 data set and numeric pres variable
+
+# Same operations w/ post-1974 data
 # Interaction between years as democracy and presidential system is not significant 
 # in post 74 mode
-
 p_74_int_mod <- lm(postenp ~ fundparity4
                    + demyears
                    + fed 
@@ -200,7 +207,6 @@ later1974$pres_cat[later1974$pres == 0] <- "Non-Pres"
 later1974$pres_cat[later1974$pres == 2] <- "Pres"
 
 # Interactive model with categorical presidency variable for post 74 data
-# p >  .05 for model and interaction effect
 p_74_int_mod2 <- lm(postenp ~ fundparity4
                     + demyears
                     + fed 
@@ -210,7 +216,7 @@ p_74_int_mod2 <- lm(postenp ~ fundparity4
                     + fract
                     + log(avemag):fract, 
                     data=later1974)
-summary(p_74_int_mod2)	
+summary(p_74_int_mod2)
 
 # Adding categorical pres to 74 additive model to allow for anova comparison 
 p_74_w_cat <- lm(postenp ~ fundparity4
@@ -225,6 +231,28 @@ p_74_w_cat <- lm(postenp ~ fundparity4
 # Model does not pass .05 threshold, meaning variance explained could random
 summary(p_74_w_cat)
 
-# Anova for additive and interactive post 74 models with  binary presidential variable
 # Amount of variance explained by each model is not significantly different
 anova(p_74_int_mod2, p_74_w_cat)
+
+# Some descriptive stats
+mean(campaigns$postenp) # Highest Greece = 9 / Lowest Lowest 1.7
+
+# Average years as a democracy by regime type in full data set
+aggregate(campaigns$demyears, by = list(campaigns$pres_cat), FUN = mean)
+
+# Average years as a democracy by regime type in full post 1974 set
+aggregate(later1974$demyears, by = list(later1974$pres_cat), FUN = mean)
+
+
+# For Presentation
+setwd("GitHub/StatsII_Spring2023/Replication/R Code")
+
+stargazer(full, post1974, type = "latex", out ="P+T_Main_Models.text")
+stargazer(full, full_w_cat, out = "Full_and_Full_cat.txt")
+
+stargazer(full_w_cat, int_mod2,out = "int_mod_comparison.txt")
+stargazer(anova(full_w_cat, int_mod2), out = "anova_int_mod_comp.txt")
+
+
+stargazer(p_74_w_cat, p_74_int_mod2, out = "post_74_comparisons.txt")
+stargazer(anova(p_74_w_cat, p_74_int_mod2), out = "post_74_anova.txt")

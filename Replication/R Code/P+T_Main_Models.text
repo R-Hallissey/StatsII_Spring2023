@@ -1,0 +1,49 @@
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Mon, Apr 03, 2023 - 13:49:54
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & \multicolumn{2}{c}{postenp} \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ fundparity4 & 0.438$^{***}$ & 0.454$^{**}$ \\ 
+  & (0.153) & (0.210) \\ 
+  & & \\ 
+ demyears & 0.013 & $-$0.013 \\ 
+  & (0.011) & (0.033) \\ 
+  & & \\ 
+ fed & $-$0.213 & $-$0.228 \\ 
+  & (0.476) & (0.754) \\ 
+  & & \\ 
+ pres & $-$0.172 & $-$0.025 \\ 
+  & (0.211) & (0.284) \\ 
+  & & \\ 
+ log(avemag) & 0.601$^{**}$ & 0.343 \\ 
+  & (0.301) & (0.446) \\ 
+  & & \\ 
+ fract & 0.956 & $-$0.427 \\ 
+  & (1.290) & (1.911) \\ 
+  & & \\ 
+ log(avemag):fract & $-$0.750 & $-$0.576 \\ 
+  & (0.641) & (0.889) \\ 
+  & & \\ 
+ Constant & 3.070$^{***}$ & 4.383$^{***}$ \\ 
+  & (0.764) & (1.217) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & 90 & 54 \\ 
+R$^{2}$ & 0.198 & 0.168 \\ 
+Adjusted R$^{2}$ & 0.129 & 0.041 \\ 
+Residual Std. Error & 1.647 (df = 82) & 1.792 (df = 46) \\ 
+F Statistic & 2.885$^{***}$ (df = 7; 82) & 1.327 (df = 7; 46) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

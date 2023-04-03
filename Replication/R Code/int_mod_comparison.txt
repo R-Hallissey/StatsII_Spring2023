@@ -14,11 +14,8 @@ demyears                      0.013                0.025**
 fed                          -0.295                -0.270        
                              (0.480)               (0.467)       
                                                                  
-pres_catPres                 -0.346                              
-                             (0.422)                             
-                                                                 
-cat_presPres                                        1.095        
-                                                   (0.744)       
+pres_catPres                 -0.346                 1.095        
+                             (0.422)               (0.744)       
                                                                  
 log(avemag)                   0.439                 0.434        
                              (0.319)               (0.310)       
@@ -26,7 +23,7 @@ log(avemag)                   0.439                 0.434
 fract                         0.522                 0.223        
                              (1.309)               (1.280)       
                                                                  
-demyears:cat_presPres                             -0.055**       
+demyears:pres_catPres                             -0.055**       
                                                    (0.024)       
                                                                  
 log(avemag):fract            -0.190                -0.167        

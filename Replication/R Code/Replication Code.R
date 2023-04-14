@@ -170,7 +170,7 @@ summary(int_mod2)
 # Altering the full additive model to allow for anova comparison 
 full_w_cat <- lm(postenp ~ fundparity4
                  + demyears
-                 + fed 
+                 + fed
                  + pres_cat
                  + log(avemag) 
                  + fract
